@@ -1,0 +1,1 @@
+# vimrc-autogenerate-front
