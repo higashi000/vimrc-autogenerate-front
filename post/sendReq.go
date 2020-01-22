@@ -18,7 +18,7 @@ type VimrcOption struct {
   ColorScheme string `json:"colorscheme"`
 }
 
-func generate(indent int, colorscheme string) {
+func Generate(indent int, colorscheme string) {
   url := "http://localhost:5000/generate"
 
   orderVimrc := VimrcOption{}
