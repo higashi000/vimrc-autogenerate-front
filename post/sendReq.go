@@ -7,6 +7,7 @@ import (
   "io/ioutil"
   "fmt"
   "log"
+  "github.com/google/uuid"
 )
 
 type Vimrc struct {
@@ -14,6 +15,7 @@ type Vimrc struct {
 }
 
 type VimrcOption struct {
+  Uuid string `json:"uuid"`
   Indent int `json:"indent"`
   ColorScheme string `json:"colorscheme"`
 }
@@ -21,7 +23,14 @@ type VimrcOption struct {
 func Generate(indent int, colorscheme string) {
   url := "http://localhost:5000/generate"
 
+  u, err := uuid.NewRandom()
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+
   orderVimrc := VimrcOption{}
+  orderVimrc.Uuid = u.String()
   orderVimrc.Indent = indent
   orderVimrc.ColorScheme = colorscheme
 
