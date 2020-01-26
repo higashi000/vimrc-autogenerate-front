@@ -10,13 +10,16 @@
         });
       }
 
+      var cntFormNum = 0;
       function AddForm() {
-        var indentForm = '<div>'
+        console.log(cntFormNum);
+        var indentForm = '<div id = "languageIndnent' + Number(cntFormNum) + '">'
         + '<p>言語(拡張子)</p><input type="text" id = "indent"/>'
         + '<p>インデント数</p><input type="text" id = "indent"/>'
         + '</div>';
 
         document.getElementById('languageIndent').insertAdjacentHTML('beforeend', indentForm);
+        cntFormNum += 1;
       }
     </script>
   </head>
