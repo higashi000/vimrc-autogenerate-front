@@ -2,8 +2,10 @@ package main
 
 import (
   "github.com/higashi000/vimrc-autogenerate/post"
+  "github.com/higashi000/vimrc-autogenerate/getData"
 )
 
 func main() {
-  post.Generate(10, "af;kja")
+  vimrcOption := getData.GetData()
+  post.Generate(vimrcOption)
 }

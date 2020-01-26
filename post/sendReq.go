@@ -16,11 +16,12 @@ type Vimrc struct {
 
 type VimrcOption struct {
   Uuid string `json:"uuid"`
+  UserName string `json:"user"`
   Indent int `json:"indent"`
   ColorScheme string `json:"colorscheme"`
 }
 
-func Generate(indent int, colorscheme string) {
+func Generate(orderVimrc VimrcOption) {
   url := "http://localhost:5000/generate"
 
   u, err := uuid.NewRandom()
@@ -29,10 +30,7 @@ func Generate(indent int, colorscheme string) {
     return
   }
 
-  orderVimrc := VimrcOption{}
   orderVimrc.Uuid = u.String()
-  orderVimrc.Indent = indent
-  orderVimrc.ColorScheme = colorscheme
 
   sendData, err := json.Marshal(orderVimrc)
   if err != nil {
@@ -61,8 +59,6 @@ func Generate(indent int, colorscheme string) {
   defer resp.Body.Close()
 
   body, err := ioutil.ReadAll(resp.Body)
-
-  fmt.Println(string(body))
 
   var vimrc Vimrc
   err = json.Unmarshal(body, &vimrc)
