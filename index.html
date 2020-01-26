@@ -13,13 +13,15 @@
       var cntFormNum = 0;
       function AddForm() {
         console.log(cntFormNum);
-        var indentForm = '<div id = "languageIndnent' + Number(cntFormNum) + '">'
+        var indentForm = '<div id = "languageIndnent' + String(cntFormNum) + '">'
         + '<p>言語(拡張子)</p><input type="text" id = "indent"/>'
         + '<p>インデント数</p><input type="text" id = "indent"/>'
         + '</div>';
 
         document.getElementById('languageIndent').insertAdjacentHTML('beforeend', indentForm);
         cntFormNum += 1;
+        var element = document.getElementById("indentSettingNum");
+        element.innerText = String(cntFormNum)
       }
     </script>
   </head>
@@ -35,6 +37,7 @@
     </select>
 
     <p>言語別インデント</p><br>
+    <p>現在の個数:<p id = "indentSettingNum">0</p></p>
     <input type="button" value="追加" onclick="AddForm()"/><br>
     <div id = "languageIndent">
     </div>
