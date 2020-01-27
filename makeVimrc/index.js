@@ -7,7 +7,7 @@ function Send(callback) {
 }
 
 function Move() {
-  location.href = './result.html?uuid=' + document.getElementById('uuid').value
+  location.href = '../result/result.html?uuid=' + document.getElementById('uuid').value
 }
 
 var cntFormNum = 0;
