@@ -2,21 +2,26 @@
 	<head>
 		<meta charset="utf-8"/>
 		<script src="wasm_exec.js"></script>
-		<script>
-      function Send() {
-			  const go = new Go();
+		<script type = "text/javascript">
+      function Send(callback) {
+        const go = new Go();
         WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
           go.run(result.instance);
+          callback();
         });
+      }
+
+      function Move() {
+        location.href = './result.html?uuid=' + document.getElementById('uuid').value
       }
 
       var cntFormNum = 0;
       function AddForm() {
         console.log(cntFormNum);
         var indentForm = '<div id = "languageIndnent' + String(cntFormNum) + '">'
-        + '<p>言語(拡張子)</p><input type="text" id = "indent"/>'
-        + '<p>インデント数</p><input type="text" id = "indent"/>'
-        + '</div>';
+          + '<p>言語(拡張子)</p><input type="text" id = "lang' + String(cntFormNum) + '"/>'
+          + '<p>インデント数</p><input type="text" id = "indent' + String(cntFormNum) + '"/>'
+          + '</div>';
 
         document.getElementById('languageIndent').insertAdjacentHTML('beforeend', indentForm);
         cntFormNum += 1;
@@ -24,9 +29,10 @@
         element.innerText = String(cntFormNum)
       }
     </script>
+
   </head>
   <body>
-    <input type="button" value="送信" onclick="Send();"/><br>
+    <input type="button" value="送信" onClick="Send(Move);"><br>
     <p>インデント数</p><input type="text" id = "indent"/><br>
     <p>名前</p><input type="text" id = "username"/><br>
     <p>カラースキーム</p>
@@ -38,8 +44,9 @@
 
     <p>言語別インデント</p><br>
     <p>現在の個数:<p id = "indentSettingNum">0</p></p>
-    <input type="button" value="追加" onclick="AddForm()"/><br>
+    <input type="button" value="追加" onClick="AddForm()"/><br>
     <div id = "languageIndent">
     </div>
+    <div id = "uuid" value = ""></div>
   </body>
 </html>
