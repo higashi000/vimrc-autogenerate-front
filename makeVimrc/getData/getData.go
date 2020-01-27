@@ -4,7 +4,7 @@ import (
   "syscall/js"
   "strconv"
   "log"
-  "github.com/higashi000/vimrc-autogenerate/post"
+  "github.com/higashi000/vimrc-autogenerate/makeVimrc/post"
 )
 
 func GetData() post.VimrcOption {

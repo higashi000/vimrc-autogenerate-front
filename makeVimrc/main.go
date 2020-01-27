@@ -1,8 +1,8 @@
 package main
 
 import (
-  "github.com/higashi000/vimrc-autogenerate/post"
-  "github.com/higashi000/vimrc-autogenerate/getData"
+  "github.com/higashi000/vimrc-autogenerate/makeVimrc/post"
+  "github.com/higashi000/vimrc-autogenerate/makeVimrc/getData"
 )
 
 func main() {
