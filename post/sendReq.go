@@ -7,6 +7,7 @@ import (
   "io/ioutil"
   "fmt"
   "log"
+  "syscall/js"
   "github.com/google/uuid"
 )
 
@@ -19,6 +20,12 @@ type VimrcOption struct {
   UserName string `json:"user"`
   Indent int `json:"indent"`
   ColorScheme string `json:"colorscheme"`
+  LangSetting []LanguageSettings `json:"langSettings"`
+}
+
+type LanguageSettings struct {
+  Language string `json:"language"`
+  Indent int `json:"indent"`
 }
 
 func Generate(orderVimrc VimrcOption) {
@@ -31,6 +38,10 @@ func Generate(orderVimrc VimrcOption) {
   }
 
   orderVimrc.Uuid = u.String()
+
+  document := js.Global().Get("document")
+  element := document.Call("getElementById", "uuid")
+  element.Set("value", orderVimrc.Uuid)
 
   sendData, err := json.Marshal(orderVimrc)
   if err != nil {
