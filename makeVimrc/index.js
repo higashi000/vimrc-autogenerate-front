@@ -14,12 +14,16 @@ var cntFormNum = 0;
 function AddForm() {
   console.log(cntFormNum);
   var indentForm = '<div id = "languageIndnent' + String(cntFormNum) + '">'
+    + '<div class = "cp_iptxt">'
     + '<p>言語(拡張子)</p><input type="text" id = "lang' + String(cntFormNum) + '"/>'
+    + '</div>'
+    + '<div class = "cp_iptxt">'
     + '<p>インデント数</p><input type="text" id = "indent' + String(cntFormNum) + '"/>'
+    + '</div>'
     + '</div>';
 
   document.getElementById('languageIndent').insertAdjacentHTML('beforeend', indentForm);
   cntFormNum += 1;
   var element = document.getElementById("indentSettingNum");
-  element.innerText = String(cntFormNum)
+  element.value = String(cntFormNum)
 }
