@@ -1,0 +1,28 @@
+.Title {
+  color: #404040;
+  padding: 0.5em 0;
+  border-top:solid 10px #009900;
+  border-bottom: solid 10px #009900;
+  font-size: 60px;
+}
+
+/* https://saruwakakun.com/html-css/reference/buttons {{{*/
+.btn-square {
+  width: 340;
+  height: 100;
+  font-size: 50;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #009900;/*ボタン色*/
+  color: #eeeeee;
+  border-bottom: solid 4px #008800;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+/* }}} */
