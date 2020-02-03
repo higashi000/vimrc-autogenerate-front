@@ -3,23 +3,30 @@
     <meta charset="utf-8"/>
     <script src="wasm_exec.js"></script>
     <script type = "text/javascript" src = "index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <input type="button" value="送信" onClick="Send(Move);"><br>
-    <p>インデント数</p><input type="text" id = "indent"/><br>
-    <p>名前</p><input type="text" id = "username"/><br>
+    <center>
+    <input type="button" class = "btn-square" value="送信" onClick="Send(Move);">
+    <div class = "cp_iptxt">
+    <p>名前</p><input type="text" id = "username" placeholder = "名前"/>
+    </div>
+    <div class = "cp_iptxt">
+    <p>デフォルトインデント数</p><input type="text" id = "indent" placeholder = "インデント"/>
+    </div>
     <p>カラースキーム</p>
-    <select name = "colorscheme" id = "colorscheme">
+    <select name = "colorscheme" class = "select" id = "colorscheme">
       <option value="cocopon/iceberg.vim">iceberg.vim</option>
       <option value="taigacute/gruvbox9">gruvbox9</option>
       <option value="w0ng/vim-hybrid">vim-hybrid</option>
     </select>
 
-    <p>言語別インデント</p><br>
-    <p>現在の個数:<p id = "indentSettingNum">0</p></p>
-    <input type="button" value="追加" onClick="AddForm()"/><br>
+    <p>言語別インデント</p>
+    <p id = "indentSettingNum" value = 0></p>
+    <input type="button" value="追加" class = "btn-square" onClick="AddForm()"/>
     <div id = "languageIndent">
     </div>
     <div id = "uuid" value = ""></div>
+    </center>
   </body>
 </html>
