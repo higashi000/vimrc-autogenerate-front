@@ -4,13 +4,20 @@
     <div id = "vimrcUUID" value = ""></div>
     <script src="wasm_exec.js"></script>
     <script type = "text/javascript" src=  "index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <h1>vimrc生成結果</h1>
-    <p id = "user"></p>
-    <input type="button" value="クリップボードへコピー" onClick="vimrcClipboard();">
-    <p id = "vimrc">
-      <img src = "./loading.gif" alt = "loading" title = "loading">
-    </p>
+    <center>
+      <div class = "Title">
+        <h1>vimrc生成結果</h1>
+      </div>
+      <p id = "user"></p>
+      <input type="button" class = "btn-square" value="クリップボードへコピー" onClick="vimrcClipboard();">
+      <div class = "frame">
+      <p id = "vimrc" class = "vimrc" align = "left">
+        <img src = "./loading.gif" alt = "loading" title = "loading">
+      </p>
+      </div>
+    </center>
   </body>
 </html>
