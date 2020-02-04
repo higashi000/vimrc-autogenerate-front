@@ -57,6 +57,14 @@
 }
 /* }}} */
 
+.Title {
+  color: #404040;
+  padding: 0.5em 0;
+  border-top:solid 10px #009900;
+  border-bottom: solid 10px #009900;
+  font-size: 25px;
+}
+
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
