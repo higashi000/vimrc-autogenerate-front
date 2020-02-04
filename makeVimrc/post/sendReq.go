@@ -30,7 +30,7 @@ type LanguageSettings struct {
 }
 
 func Generate(orderVimrc VimrcOption) {
-	url := "http://localhost:4000/generate"
+	url := "http://localhost:5000/generate"
 
 	u, err := uuid.NewRandom()
 	if err != nil {
